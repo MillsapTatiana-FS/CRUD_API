@@ -18,7 +18,6 @@ db.on('error', error => console.error(error));
 db.once('open', () => console.log("Database Connection established"));
 
 app.use(express.json());
-
 app.use('/students', studentRouter);
 
 app.listen(PORT, () => {    
