@@ -1,0 +1,29 @@
+GET http://localhost:8000/students
+
+###
+
+GET http://localhost:8000/students/62c8a710500b9e531a7f7cf3
+
+###
+
+POST http://localhost:8000/students
+Content-Type: application/json
+    
+{
+    "name": "Tatiana ",
+    "class": "DWA"
+}
+
+###
+
+DELETE  http://localhost:8000/students/62c8a710500b9e531a7f7cf3
+
+###
+
+PATCH http://localhost:8000/students/62c8a6a6500b9e531a7f7cf1
+Content-Type: application/json
+    
+{
+    "name": "New Name",
+    "class": "New Class"
+}
