@@ -2,7 +2,7 @@ GET http://localhost:8000/crystals
 
 ###
 
-GET http://localhost:8000/crystals
+GET http://localhost:8000/crystals/62d1aae19f9711a74d702bae
 
 ###
 
@@ -10,18 +10,18 @@ POST http://localhost:8000/crystals
 Content-Type: application/json
     
 {
-    "name": "Amethyst ",
-    "color": "Purple",
+     "name": "Moonstone",
+    "color": "Yellow",
     "chakra": "Crown"
 }
 
 ###
 
-DELETE  http://localhost:8000/crystals
+DELETE  http://localhost:8000/crystals/62d1aae19f9711a74d702bae
 
 ###
 
-PATCH http://localhost:8000/crystals
+PATCH http://localhost:8000/crystals/62d1ad299f9711a74d702bbb
 Content-Type: application/json
     
 {
