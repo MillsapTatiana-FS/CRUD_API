@@ -1,29 +1,31 @@
-GET http://localhost:8000/students
+GET http://localhost:8000/crystals
 
 ###
 
-GET http://localhost:8000/students/62c9acce1da9f2efbae8e37e
+GET http://localhost:8000/crystals/62d1aae19f9711a74d702bae
 
 ###
 
-POST http://localhost:8000/students
+POST http://localhost:8000/crystals
 Content-Type: application/json
     
 {
-    "name": "Tatiana ",
-    "class": "DWA"
+     "name": "Moonstone",
+    "color": "Yellow",
+    "chakra": "Crown"
 }
 
 ###
 
-DELETE  http://localhost:8000/students/62c8df4b9cbe11cff05c7c9d
+DELETE  http://localhost:8000/crystals/62d1aae19f9711a74d702bae
 
 ###
 
-PATCH http://localhost:8000/students/62c9acce1da9f2efbae8e37e
+PATCH http://localhost:8000/crystals/62d1ad299f9711a74d702bbb
 Content-Type: application/json
     
 {
-    "name": "Monique",
-    "class": "New Class"
+    "name": "Moonstone",
+    "color": "White",
+    "chakra": "Crown"
 }
