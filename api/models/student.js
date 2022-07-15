@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
-const studentSchema = new mongoose.Schema({
+const crystalSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,    
     },
-    class: {
+    color: {
+        type: String,
+        required: true,    
+    },
+    chakra: {
         type: String,
         required: true,    
     },
@@ -16,4 +20,4 @@ const studentSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('Student', studentSchema)
+module.exports = mongoose.model('Student', crystalSchema)

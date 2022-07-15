@@ -9,7 +9,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 8000;
 
-const studentRouter = require('./routes/students')
+const crystalRouter = require('./routes/crystals')
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
@@ -19,7 +19,7 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log("Database Connection established"))
 
 app.use(express.json())
-app.use('/api/v1/students', studentRouter)
+app.use('/api/crystals', crystalRouter)
 
 //look in the react build folder for static build
 app.use(express.static(path.join(__dirname, '../reactjs/build')));
