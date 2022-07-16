@@ -2,7 +2,7 @@ GET http://localhost:8000/crystals
 
 ###
 
-GET http://localhost:8000/crystals/62d1aae19f9711a74d702bae
+GET http://localhost:8000/crystals/62d2d87a6828474b80b402de
 
 ###
 
@@ -10,9 +10,9 @@ POST http://localhost:8000/crystals
 Content-Type: application/json
     
 {
-     "name": "Moonstone",
-    "color": "Yellow",
-    "chakra": "Crown"
+     "name": "RoseQuartz",
+    "color": "Pink",
+    "chakra": "Heart"
 }
 
 ###
@@ -21,11 +21,11 @@ DELETE  http://localhost:8000/crystals/62d1aae19f9711a74d702bae
 
 ###
 
-PATCH http://localhost:8000/crystals/62d1ad299f9711a74d702bbb
+PATCH http://localhost:8000/crystals/62d2d87a6828474b80b402de
 Content-Type: application/json
     
 {
-    "name": "Moonstone",
-    "color": "White",
-    "chakra": "Crown"
+    "name": "Rose Quartz",
+    "color": "Pink",
+    "chakra": "Heart"
 }
