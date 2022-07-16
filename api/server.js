@@ -19,7 +19,7 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log("Database Connection established"))
 
 app.use(express.json())
-app.use('/crystals', crystalRouter)
+app.use('/api/v1/crystals', crystalRouter)
 
 //look in the react build folder for static build
 app.use(express.static(path.join(__dirname, '../reactjs/build')));
