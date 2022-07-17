@@ -43,6 +43,9 @@ function Crystal() {
     <div className="App">
       <header className="App-header">
         <h1>Crystal Profile </h1>
+        <h5>{crystals && crystals.name}</h5>
+        <Link to="/">Home</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </header>
     </div>
   );
