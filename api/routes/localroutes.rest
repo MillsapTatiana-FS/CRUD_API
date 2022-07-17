@@ -10,7 +10,7 @@ POST http://localhost:8000/crystals
 Content-Type: application/json
     
 {
-     "name": "RoseQuartz",
+    "name": "RoseQuartz",
     "color": "Pink",
     "chakra": "Heart"
 }
