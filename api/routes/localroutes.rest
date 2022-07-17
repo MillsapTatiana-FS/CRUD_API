@@ -1,12 +1,12 @@
-GET http://localhost:8000/crystals
+GET http://localhost:8000/api/v1/crystals
 
 ###
 
-GET http://localhost:8000/crystals/62d2d87a6828474b80b402de
+GET http://localhost:8000/api/v1/crystals/62d2d87a6828474b80b402de
 
 ###
 
-POST http://localhost:8000/crystals
+POST http://localhost:8000/api/v1/crystals
 Content-Type: application/json
     
 {
@@ -17,11 +17,11 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:8000/crystals/62d1aae19f9711a74d702bae
+DELETE  http://localhost:8000/api/v1/crystals/62d1aae19f9711a74d702bae
 
 ###
 
-PATCH http://localhost:8000/crystals/62d2d87a6828474b80b402de
+PATCH http://localhost:8000/api/v1/crystals/62d3ac6c3f127df8b28ba5fe
 Content-Type: application/json
     
 {
