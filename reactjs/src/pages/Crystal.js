@@ -7,6 +7,8 @@ function Crystal() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const { id } = useParams();
+
   const API_BASE = process.env.NODE_ENV === 'development'
     ? 'http://localhost:8000/api/v1' 
     : process.env.REACT_APP_BASE_URL;
@@ -15,7 +17,7 @@ function Crystal() {
   useEffect(() => {
     
     if(!ignore){
-      getCrystals();
+      getCrystal();
     }
 
     return () => {
@@ -23,9 +25,9 @@ function Crystal() {
     }
   },  [])
   
-  const getCrystals = async () => {
+  const getCrystal = async () => {
     try{ 
-      await fetch(`${API_BASE}/crystals`)
+      await fetch(`${API_BASE}/crystals/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log({data})

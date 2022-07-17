@@ -9,7 +9,7 @@ function App() {
   return (
    <Router>
       <Routes>
-        <Route path="/crystal/:_id" element={<Crystal />} />
+        <Route path="/crystals/:id" element={<Crystal />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Home />} />
       </Routes>

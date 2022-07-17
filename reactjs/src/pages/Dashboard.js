@@ -46,7 +46,7 @@ function Dashboard() {
           {
             crystals && crystals.map(crystal => (
               <li key={crystal._id}>
-                <Link to={`/crystal/${crystal._id}`}>{crystal.name}</Link>
+                <Link to={`/crystals/${crystal._id}`}>{crystal.name}</Link>
               </li>
               ))
          }
