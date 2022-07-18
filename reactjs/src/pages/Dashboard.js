@@ -51,8 +51,9 @@ function Dashboard() {
         headers: {
           'Content-Type': 'application/json'
       },
-        body: JSON.stringify(values)})
-      .then(() => getCrystals())
+        body: JSON.stringify(values)
+      }).then(() => getCrystals())
+        
     } catch (error){
       setError(error.message || 'Something went wrong') 
     }finally{
