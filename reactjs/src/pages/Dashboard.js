@@ -6,6 +6,11 @@ function Dashboard() {
   const [crystals, setCrystals] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [values, setValues] = useState({
+    name: '',
+    color: '',
+    chakra: ''
+  })
 
   const API_BASE = process.env.NODE_ENV === 'development'
     ? 'http://localhost:8000/api/v1' 
@@ -24,6 +29,7 @@ function Dashboard() {
   },  [])
   
   const getCrystals = async () => {
+    setLoading(true)
     try{ 
       await fetch(`${API_BASE}/crystals`)
       .then(res => res.json())
@@ -37,20 +43,65 @@ function Dashboard() {
       setLoading(false)
     }
   }
+
+  const createCrystals = async () => {
+    try{ 
+      await fetch(`${API_BASE}/crystals`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+      },
+        body: JSON.stringify(values)})
+      .then(() => getCrystals())
+    } catch (error){
+      setError(error.message || 'Something went wrong') 
+    }finally{
+      setLoading(false)
+    }
+  }
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createStudent();
+}
+
+const handleInputChanges = (event) => {
+    event.persist();
+    setValues((values) => ({
+        ...values,
+        [event.target.name]: event.target.value
+    }))
+}
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>You are on Dashboard.js </h1>
+        <h1>Crystal Dashboard </h1>
         <Link to="/">Home</Link>
         <ul>
           {
-            crystals && crystals.map(crystal => (
+            crystals?.map(crystal => (
               <li key={crystal._id}>
                 <Link to={`/crystals/${crystal._id}`}>{crystal.name}</Link>
               </li>
               ))
          }
         </ul>
+        <form onSubmit={(event) => handleSubmit(event)}>
+            <label>
+                Name:
+                <input type="text" name="name" value={values.name} onChange={handleInputChanges} />
+            </label>
+            <label>
+                Color:
+                <input type="text" name="color" value={values.color} onChange={handleInputChanges} />
+            </label>
+            <label>
+                Chakra:
+                <input type="text" name="chakra" value={values.chakra} onChange={handleInputChanges} />
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
       </header>
     </div>
   );

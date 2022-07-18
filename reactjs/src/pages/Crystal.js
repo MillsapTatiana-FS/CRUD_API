@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+
 import '../App.css';
 
 function Crystal() {
@@ -9,10 +10,11 @@ function Crystal() {
 
   const [values, setValues] = useState({
     name: '',
-    color: ''
+    color: '',
+    chakra: ''
   })
 
-  const { id } = useParams();
+  const { id } = useParams()
   const navigate = useNavigate();
 
   const API_BASE = process.env.NODE_ENV === 'development'
@@ -32,12 +34,18 @@ function Crystal() {
   },  [])
   
   const getCrystal = async () => {
+    setLoading(true)
     try{ 
       await fetch(`${API_BASE}/crystals/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log({data})
-        setCrystals(data)
+        // const { name, color, chakra } = data;
+        setValues({
+            name: data.name, 
+            color: data.color, 
+            chakra: data.chakra
+        })
       })
     } catch (error){
       setError(error.message || 'Something went wrong') 
@@ -54,7 +62,7 @@ function Crystal() {
       .then(res => res.json())
       .then(data => {
         setCrystals(data)
-        navigate('/dashboard', {replace: true})
+        navigate("/dashboard", {replace: true})
       })
     } catch (error){
       setError(error.message || 'Something went wrong') 
@@ -101,12 +109,14 @@ function Crystal() {
     <div className="App">
       <header className="App-header">
         <h1>Crystal Profile </h1>
-        <h5>{crystals && crystals.name}</h5>
+        <h5>{values && values.name}</h5>
+        <p>{values && values.color}</p>
+        <p>{values && values.chakra}</p>
         <button onClick={() => deleteCrystal()}>Delete Crystal</button>
         <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
 
-        <form onSubmit={ ( ) => handleSubmit(Event)}>
+        <form onSubmit={ ( Event) => handleSubmit(Event)}>
             <label>
                 Name:
                 <input type="text" name="name" value={values.name} onChange={handleInputChanges} />
@@ -114,6 +124,10 @@ function Crystal() {
             <label>
                Color:
                 <input type="text" name="color" value={values.color} onChange={handleInputChanges} />
+            </label>
+            <label>
+               Chakra:
+                <input type="text" name="chakra" value={values.chakra} onChange={handleInputChanges} />
             </label>
             <input type="submit" value="Submit" />
         </form>
