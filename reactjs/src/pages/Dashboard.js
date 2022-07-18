@@ -62,7 +62,7 @@ function Dashboard() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    createStudent();
+    createCrystals();
 }
 
 const handleInputChanges = (event) => {

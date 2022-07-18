@@ -9,9 +9,9 @@ function App() {
   return (
    <Router>
       <Routes>
-        <Route path="/crystals/:id" element={<Crystal />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/crystals/:id" exact element={<Crystal />} />
+        <Route path="/dashboard" exact element={<Dashboard />} />
+        <Route path="/" exact element={<Home />} />
       </Routes>
    </Router>
   );
